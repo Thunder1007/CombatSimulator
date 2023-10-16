@@ -1,0 +1,6 @@
+Updates:
+stun effect nach beiden turns abspielen lassen (weniger confusion)
+Weapon arsenal auf 10+ weapons mit neuen specials
+weapon auswahl am anfang des combats + namenseingabe
+armor + attack throw?
+time.sleep & print auslagern
