@@ -1,6 +1,4 @@
 
-import modules.weapon as weapon
-import modules.special as special
 
 playerlist = []
 
@@ -11,18 +9,18 @@ class player:
         self.maxhp = maxhp
         self.hp = maxhp
         self.weapon = weapon
-        self.conditions = []
-        self.hasAttacked = False
-
-
                 
     def __str__(self):
-        return f"{self.name} now has {self.hp}/{self.maxhp} HP!"
+        return f"{self.name} has {self.hp}/{self.maxhp} HP!"
+    
+    def attack(self, target):
+        rolls = self.weapon.dmgroll()
+        dmg = sum()
+        if dmg >= target.hp:
+            target.hp = 0
+        else:
+            target.hp -= dmg
+            
+        return f"{self.name} dealt"
         
 
-
-p1 = player("Sönke", weapon.mace)
-playerlist.append(p1)
-
-p2 = player("Felix", weapon.longsword)
-playerlist.append(p2)
