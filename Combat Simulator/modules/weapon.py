@@ -1,25 +1,21 @@
 
-import random
+from die import die
 
 class weapon:
-    def __init__(self, name, amount = 1, die = 6, bonus = 0):
+    def __init__(self, name: str, die: die, bonus: int = 0):
 
         self.name = name
         self.die = die
-        self.amount = amount
         self.bonus = bonus
-
-        def checkAmount(self):
-            if self.amount >= 1:
-                return True
-            else:
-                return False
         
-        def dmgroll():
-            rolls = []
-            
-            while checkAmount():
-                rolls.append(random.randint(1, self.die))
-            
-            return rolls
+    def dmgrolls(self) -> tuple[list[int], int]:
+
+        rolls = self.die.rolls()
+        return rolls, self.bonus
+
+
+
+longsword = weapon("Longsword", die(2,6), 2)
+greatsword = weapon("Greatsword", die(3,8), -2)
+
 
