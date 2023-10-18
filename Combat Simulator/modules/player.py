@@ -31,7 +31,3 @@ class player:
     def getHP(self):
 
         return f"{self.name} now has {self.hp}/{self.maxhp} HP!"
-
-    
-
-

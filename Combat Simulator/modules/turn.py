@@ -1,22 +1,14 @@
 
-
-from player import *
 class turn():
-    def __init__(self, number) -> None:
+    def __init__(self, number):
         
         self.number = number
-        self.combatlog = []
+        self.turnlog = []
 
-    def doTurn(self, player):
+    def __str__(self) -> str:
+        return "shall be turn UwU"
 
-        self.combatlog.append(f"Turn {self.number}!")
 
-        self.combatlog.append(p1.attack(p2))
-        self.combatlog.append(p2.attack(p1))
-
-        for player in playerlist:
-
-            self.combatlog.append(player.getHP())
 
         
         

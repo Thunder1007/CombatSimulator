@@ -6,22 +6,38 @@ from player import *
 
 
 class game:
-    def __init__(self, playerlist):
+    def __init__(self, player1 = player, player2 = player):
 
-        self.playerlist = playerlist
-        self.turn = 0
+        self.p1 = player1
+        self.p2 = player2
+        self.turncount = int(0)
+        self.gamelog = []
 
     def allAlive(self):
     
-        for player in self.playerlist:
-            if player.hp == 0:
+        if self.p1.hp == 0 or self.p2.hp == 0:
                 return False
 
-        return True    
+        return True  
+      
+    def doTurn(self):
+
+        self.turncount += 1
+
+        thisTurn = turn(self.turncount)
+
+        thisTurn.turnlog.append(f"Turn {self.turncount}!")
+
+        thisTurn.turnlog.append(self.p1.attack(self.p2))
+        thisTurn.turnlog.append(self.p2.attack(self.p1))
+
+        thisTurn.turnlog.append(self.p1.getHP())
+        thisTurn.turnlog.append(self.p2.getHP())
+        
+        self.gamelog.append(thisTurn)
+
 
     def runGame(self):
         
-
-        while self.allAlive():
-            
-            thisturn = turn(1)
+        while self.p1.hp != 0 or self.p2.hp != 0:
+            self.doTurn()
