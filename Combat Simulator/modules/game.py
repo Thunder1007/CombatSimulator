@@ -26,13 +26,15 @@ class game:
 
         thisTurn = turn(self.turncount)
 
-        thisTurn.turnlog.append(f"Turn {self.turncount}!")
+        thisTurn.turnlog.append(f"Turn {self.turncount}!\n")
 
         thisTurn.turnlog.append(self.p1.attack(self.p2))
         thisTurn.turnlog.append(self.p2.attack(self.p1))
 
         thisTurn.turnlog.append(self.p1.getHP())
         thisTurn.turnlog.append(self.p2.getHP())
+
+        thisTurn.turnlog.append("")
         
         self.gamelog.append(thisTurn)
 

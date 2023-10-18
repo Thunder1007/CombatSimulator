@@ -26,7 +26,12 @@ class player:
             
         rolltext = ','.join(list(map(lambda x: str(x), rolls)))
 
-        return f"{self.name} dealt {dmg} ([{rolltext}] +{bonus}) damage to {target.name} with his {self.weapon.name}!"
+        if bonus < 0:
+            return f"{self.name} dealt {dmg} ([{rolltext}] {bonus}) damage to {target.name} with his {self.weapon.name}!"
+        if bonus == 0:
+            return f"{self.name} dealt {dmg} ([{rolltext}]) damage to {target.name} with his {self.weapon.name}!"
+        else:  
+            return f"{self.name} dealt {dmg} ([{rolltext}] +{bonus}) damage to {target.name} with his {self.weapon.name}!"
     
     def getHP(self):
 
